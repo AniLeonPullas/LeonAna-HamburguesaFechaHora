@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:LeonAna_Hamburguesa.Models"
+             xmlns:viewModel="clr-namespace:LeonAna_Hamburguesa.DateViewModels"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="LeonAna_Hamburguesa.Views.BurgerItemPageAL"
+             Title="Detalle del pedido AL">
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10"
+                             VerticalOptions="StartAndExpand">
+            <Label Text="Ingrese el nombre de la hamburguesa" />
+            <Entry x:Name="nameAL" Text="{Binding Name}" />
+            <Label Text="Ingrese la Descripción de la hamburguesa" />
+            <Entry x:Name="descAL" Text="{Binding Description}" />
+            <Label Text="¿Desea que su hamburguesa tenga queso extra?" />
+            <CheckBox x:Name="checkAL" 
+                      Color="Red"
+                      IsChecked="{Binding WithExtraCheese}"
+                      />
+            <Label Text="FECHA Y HORA ACTUALES" 
+                   TextColor="Purple"/>
+    
+            <Label x:Name="fuente"
+                Text="{Binding DateTime,StringFormat='{0:dd MMMM yyyy, HH:mm:ss}'}">
+                <Label.BindingContext>
+                    <viewModel:DateViewModel />
+                </Label.BindingContext>
+            </Label>
+
+            <Button BackgroundColor="MistyRose"
+                    Text="Guardar"
+                    TextColor="Black"
+                    Clicked="OnSaveClickedAL" />
+            <Button BackgroundColor="Moccasin" 
+                    Text="Cancelar"
+                    TextColor="Black"
+                    Clicked="OnCancelClickedAL" />
+            <Button BackgroundColor="NavajoWhite" 
+                    Text="Borrar o Eliminar"
+                    TextColor="Black"
+                    Clicked="DeleteButton_ClickedAL" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
+
